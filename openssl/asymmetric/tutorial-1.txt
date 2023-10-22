@@ -1,0 +1,14 @@
+#distribute key pairs
+openssl genpkey -algorithm RSA -out alice/Alice.priv
+openssl rsa -pubout -in alice/Alice.priv -out bob/Alice.pub
+
+cd bob/
+cat sample.txt
+
+openssl rsautl -encrypt -pubin -inkey Alice.pub -in sample.txt -out sample_enc.dat
+mv sample_enc.dat ../alice
+
+cd ../alice/
+openssl rsautl -decrypt -inkey Alice.priv -in sample_enc.dat -out sample_dec.dat
+
+cat sample_enc.dat
