@@ -44,7 +44,7 @@ There are two main encryption types:
 - Same/symmetric key pair
 - Same algorithm for encryption/decryption
 - Efficient computation
-- Keys must be shared
+- Keys must be shared, which becomes a serious concern as the number of parties involved in the exchange increases.
 
 ### Asymmetric
 
