@@ -13,3 +13,8 @@ The TLS handshake is used to establish a secure connection between a client and 
 5. **Finish Handshake**: Both client and server generate the session keys using the pre-master secret and exchanged values. They confirm that they are ready to start secure communication.
 
 6. **Secure Communication**: With the session keys in place, the client and server can now encrypt and decrypt data for secure communication.
+
+
+# Comparison
+
+The main difference between the TLS handshake and mTLS is that mTLS adds mutual authentication, where both the client and server authenticate each other using digital certificates. In regular TLS, only the server is authenticated (the client is typically not). In mTLS, both parties are authenticated, which adds an extra layer of security and can be useful in situations where you need to be certain of the identities of both the client and server. However, mTLS can be more complex to set up and manage due to the need for client certificates.
