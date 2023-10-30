@@ -70,8 +70,13 @@ The process involves:
 
 ## Digital Certificates
 
-To be continued...
+certificate authority signs a certificate using it's private key.
+
+a certificate is for demonstrating that THIS-id is bound to THIS-entity, like an IDcard.
+IDcard's reliability is as good as the source of IDcard issuer, the entity who issued that card.
+Analogous to this situation, the issuer is CA certificate Authority.
 
 ## Over to Terminal
 
+NOTE – it all starts with the PRIVATE key
 To be continued...
