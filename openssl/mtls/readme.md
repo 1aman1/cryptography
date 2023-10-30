@@ -17,3 +17,8 @@ mTLS builds on the basic TLS handshake by requiring both the client and server t
 7. **Finish Handshake**: Similar to the TLS handshake, both parties confirm they are ready for secure communication.
 
 8. **Secure Communication**: With the session keys in place, the client and server can communicate securely. Additionally, both parties are authenticated through their digital certificates.
+
+
+# Comparison
+
+The main difference between the TLS handshake and mTLS is that mTLS adds mutual authentication, where both the client and server authenticate each other using digital certificates. In regular TLS, only the server is authenticated (the client is typically not). In mTLS, both parties are authenticated, which adds an extra layer of security and can be useful in situations where you need to be certain of the identities of both the client and server. However, mTLS can be more complex to set up and manage due to the need for client certificates.
