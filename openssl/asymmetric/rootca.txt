@@ -1,0 +1,18 @@
+cd rootca/
+#create
+openssl req -x509 -newkey rsa:4096 -days 365 -keyout ca-key.pem -out ca-cert.pem -subj "/C=IN/ST=KA/L=BLR/O=GMAIL/OU=TELE/CN=*.gmail.com/emailAddress=ca-sdl@gmail.com.com"
+
+#view
+openssl x509 -in ca-cert.pem -noout -text
+
+#create server key, any server which wants to interact with another entity using it's ID
+openssl req -newkey rsa:4096 -keyout server-key.pem -out server-req.pem -subj "/C=IN/ST=KA/L=BLR/O=GMAIL/OU=TELE/CN=*.gmail.com/emailAddress=rtdbteam@gmail.com.com"
+
+#create certificate signing request
+openssl x509 -req -in server-req.pem -CA ca-cert.pem -CAkey ca-key.pem -CAcreateserial -out server-digi-cert.pem
+
+#view
+openssl x509 -in server-digi-cert.pem -noout -text
+
+#validate
+openssl verify -CAfile ca-cert.pem server-digi-cert.pem
