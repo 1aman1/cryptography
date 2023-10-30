@@ -79,4 +79,5 @@ Analogous to this situation, the issuer is CA certificate Authority.
 ## Over to Terminal
 
 NOTE – it all starts with the PRIVATE key
+
 To be continued...
