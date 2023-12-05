@@ -1,0 +1,14 @@
+# remember, it always starts with a private key
+
+openssl genrsa -out ca.key 2048
+openssl req -new -x509 -days 365 -key ca.key -out ca.crt -subj "/C=US/ST=CA/L=City/O=Organization/CN=RootCA"
+
+# for a server
+openssl genrsa -out server.key 2048
+openssl req -new -key server.key -out server.csr -subj "/C=US/ST=CA/L=City/O=Organization/CN=server"
+openssl x509 -req -days 365 -in server.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out server.pem
+
+# for a client
+openssl genrsa -out client.key 2048
+openssl req -new -key client.key -out client.csr -subj "/C=US/ST=CA/L=City/O=Organization/CN=client"
+openssl x509 -req -days 365 -in client.csr -CA ca.crt -CAkey ca.key -CAcreateserial -out client.pem
